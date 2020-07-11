@@ -17,12 +17,12 @@ class CategoriesTableSeeder extends Seeder
 //            'parent_id' => 0
 //        ];
 
-        for ($i = 1; $i <= 15; $i++) {
+        for ($i = 1; $i <= 30; $i++) {
             $categoryName = 'Категория №' . $i;
             $parentId = ($i > 7) ? rand(1, 7) : 0;
 
             $categories[] = [
-                'name'      => $categoryName,
+                'title'      => $categoryName,
                 'alias'     => Str::slug($categoryName),
                 'parent_id' => $parentId,
                 'created_at'=> now(),

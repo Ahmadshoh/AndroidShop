@@ -137,18 +137,17 @@
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.group-p{
-    padding: 0;
+.list-group{
     position: relative;
 }
-
-.delete{
+.list-group > .delete{
     position: absolute;
+    width: 20px;
+    height: 20px;
     right: 25px;
-    top: 25%;
-    font-size: 21px;
+    top: 3%;
 }
-.group-p:hover .delete{
+.list-group:hover .delete{
     transition: .5s;
     z-index: 99999;
 }

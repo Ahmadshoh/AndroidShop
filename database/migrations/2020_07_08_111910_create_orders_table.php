@@ -15,6 +15,11 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('user_id');
+            $table->string('status')->default('Обрабатывается');
+            $table->string('buying_type');
+            $table->string('address')->nullable();
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }

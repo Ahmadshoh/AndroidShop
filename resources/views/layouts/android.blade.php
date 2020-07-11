@@ -20,7 +20,7 @@
 <div class="container">
     <section class="top-header">
         <div class="logo">
-            <a href=""><img src="{{ asset('/storage/logo/android.png') }}" alt=""></a>
+            <a href="{{ route('index') }}"><img src="{{ asset('/storage/logo/android.png') }}" alt=""></a>
         </div>
         <div class="phone">
             <h3><span>+992</span> 98 766 2004</h3>
@@ -33,6 +33,11 @@
                 <li><a href="/">Products</a></li>
                 <li><a href="/">Оплата</a></li>
                 <li><a href="/">Contact</a></li>
+                @auth
+                    @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
+                        <li><a href="{{ route('admin') }}">Админка</a></li>
+                    @endif
+                @endauth
             </ul>
         </div>
     </section>
@@ -52,8 +57,9 @@
                     <button type="button" class="search-btn"><i class="fa fa-search"></i></button>
                 </li>
                 <li class="bookmark">
-                    <a href=""><button type="button" class="bookmark-btn"><i
-                                class="fa fa-heart"></i></button></a>
+                    <a href="{{ route('bookmark') }}">
+                        <button type="button" class="bookmark-btn"><i class="fa fa-heart"></i></button>
+                    </a>
                 </li>
                 <li class="cabins">
                     <button class="menu-btn cabinet">Кабинет<i class="fas fa-user"></i></button>
@@ -61,7 +67,9 @@
                         @auth
                             <div><a href="user/profile">Личный кабинет</a></div>
                             <div><a href="user/orders">Ваши заказы</a></div>
-                            <div><a href="{{ route('logout') }}">Выйти</a></div>
+                            <div><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Выйти</a></div>
+                            <form action="{{ route('logout') }}" id="logout-form" style="display: none" method="post">@csrf</form>
+
                         @else
                             <div><a href="{{ route('login') }}">Войти</a></div>
                             <div><a href="{{ route('register') }}">Зарегистрироваться</a></div>
@@ -69,9 +77,10 @@
                     </div>
                 </li>
                 <li class="cart">
-                    <a href="">
-                        <button class="menu-btn"><span class="cart-count">1</span>Корзина<i
-                                class="fa fa-cart-plus"></i></button>
+                    <a href="{{ route('cart') }}">
+                        <button class="menu-btn">
+                            <span class="cart-count">{{ Session::has('cart') ? Session::get('cart')->totalQty : 0 }}</span>Корзина<i class="fa fa-cart-plus"></i>
+                        </button>
                     </a>
                 </li>
             </ul>
@@ -79,7 +88,31 @@
     </div>
 </section>
 
-@yield('content')
+<section class="content">
+    <div class="container">
+
+        @if ($errors->any())
+        <div class="col-12">
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                    {{ $error }}
+                @endforeach
+            </div>
+        </div>
+        @endif
+        @if (session()->has('success'))
+            <div class="col-12">
+                <div class="alert alert-success">
+                    {{ session()->get('success') }}
+{{--                    @foreach(session('success')->get('success') as $message)--}}
+{{--                        {{ $message }}--}}
+{{--                    @endforeach--}}
+                </div>
+            </div>
+        @endif
+        @yield('content')
+    </div>
+</section>
 
 <div id="myModal" class="modal fade" tabindex="-1">
     <div class="modal-dialog modal-md">
@@ -92,7 +125,7 @@
                 <div class="products-in-modal">
                     <div class="modal-items-img"><img src="img/-A30-32GB блк.png" alt=""></div>
                     <div class="modal-items-title">Samsung Galaxy A50</div>
-                    <div class="modal-items price">1 x 1785 <span>TJS</span></span></div>
+                    <div class="modal-items price">1 x 1785 <span>TJS</span></div>
                 </div>
             </div>
             <div class="modal-footer">

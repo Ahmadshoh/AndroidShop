@@ -12,14 +12,14 @@ $factory->define(\App\Models\Product::class, function (Faker $faker) {
     $alif_link = "https://alif.shop/phone/huawei/huawei-y9s-6-128-gb-ru/";
 
     $data = [
-        'category_id'   => rand(1, 15),
+        'category_id'   => rand(8, 30),
         'title'         => $title,
         'alias'         => Str::slug($title),
         'alif_link'     => $alif_link,
         'price'         => rand(100, 22500),
         'amount'        => rand(3, 100),
         'description'   => $txt,
-        'image'         => '/storage/phones/' . rand(1, 6) . '.png',
+        'image'         => '/phones/' . rand(1, 6) . '.png',
         'visible'       => rand(true, false),
         'recommended'   => rand(true, false)
     ];
