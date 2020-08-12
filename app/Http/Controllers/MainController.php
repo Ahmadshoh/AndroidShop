@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Slider;
-use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
@@ -27,6 +26,7 @@ class MainController extends Controller
                 'parent_category'   => $parent_category,
                 'child_category'    => $child_category
             ]);
+
         } else {
             $category = Category::where('alias', $category_alias)->first();
             $category_children = Category::where('parent_id', $category->id)->get();

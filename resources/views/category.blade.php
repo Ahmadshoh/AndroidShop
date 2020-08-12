@@ -60,8 +60,8 @@
                                     <p>Цена: {{ $product->price }} <span>TJS</span></p>
                                 </div>
                                 <div class="add-to-cart">
-                                    <a href=""><button class="main-btn">Купить наличнимы</button></a>
-                                    <a href=""><button class="main-btn">Купить в рассрочку</button></a>
+                                    <a href="{{ route('addToCart', $product->id) }}"><button class="main-btn">Купить наличнимы</button></a>
+                                    <a href="{{ $product->alif_link }}"><button class="main-btn">Купить в рассрочку</button></a>
                                 </div>
                             </div>
                         </div>
@@ -101,8 +101,8 @@
                                         <p>Цена: {{ $product->price }} <span>TJS</span></p>
                                     </div>
                                     <div class="add-to-cart">
-                                        <a href=""><button class="main-btn">Купить наличнимы</button></a>
-                                        <a href=""><button class="main-btn">Купить в рассрочку</button></a>
+                                        <a href="{{ route('addToCart', $product->id) }}"><button class="main-btn">Купить наличнимы</button></a>
+                                        <a href="{{ $product->alif_link }}"><button class="main-btn">Купить в рассрочку</button></a>
                                     </div>
                                 </div>
                             </div>

@@ -12,6 +12,7 @@ use Illuminate\Notifications\Notifiable;
  * @property mixed email
  * @property mixed name
  * @property mixed admin
+ * @property mixed id
  */
 class User extends Authenticatable
 {

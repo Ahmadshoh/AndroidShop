@@ -43,7 +43,7 @@ class ProductController extends Controller
 
         Product::create($params);
 
-        return redirect()->route('admin.product.index');
+        return redirect()->route('admin.product.index')->with('success', "Товар успешно сохранён в базу!");
     }
 
 
@@ -81,20 +81,21 @@ class ProductController extends Controller
         }
 
         $product->save();
-        return redirect()->route('admin.product.index');
+        return redirect()->route('admin.product.index')->with('success', "Товар успешно изменён!");
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param Product $product
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      * @throws Exception
      */
 
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('admin.product.index');
+
+        return redirect()->route('admin.product.index')->with('success', "Товар успешно удалён!");
     }
 }

@@ -533,138 +533,6 @@ a {
 ***********************************/
 /***********************************
 
-    Cart
-
-***********************************/
-.mobile-cart {
-  display: none;
-}
-
-.cart-warning {
-  display: none;
-}
-
-.mobile-product-total-price {
-  display: none;
-}
-
-.moble-order-button {
-  display: none;
-}
-
-.titles {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 3fr 2fr 3fr 2fr;
-      grid-template-columns: 1fr 3fr 2fr 3fr 2fr;
-  text-align: center;
-  padding: 15px 0;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  margin-bottom: 0;
-  border-bottom: none;
-}
-
-.bodies {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 3fr 2fr 3fr 2fr;
-      grid-template-columns: 1fr 3fr 2fr 3fr 2fr;
-  text-align: center;
-  padding: 25px 0;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-}
-
-.total {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  text-align: right;
-  padding: 15px 30px 15px 0;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  border-top: 0;
-  margin-bottom: 0;
-}
-
-.product-total-price h5 {
-  font-size: 15px;
-}
-
-.product-total-price h5 span {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.bodies div {
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-}
-
-.cart-product-img a img {
-  width: 75%;
-}
-
-.product-name a h3 {
-  font-size: 16px;
-  color: #70A221;
-}
-
-.delete-from-cart a button {
-  padding: 6px 30px;
-  font-size: 15px;
-  background: #dc3545;
-  -webkit-box-shadow: inset 0px -2px 4px rgba(0, 0, 0, 0.35);
-          box-shadow: inset 0px -2px 4px rgba(0, 0, 0, 0.35);
-  border: none;
-  color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.delete-from-cart a button:hover {
-  background: red;
-}
-
-.order-btn button {
-  border: none;
-  background: #CBE34D;
-  -webkit-box-shadow: inset 0px -2px 4px rgba(0, 0, 0, 0.35);
-          box-shadow: inset 0px -2px 4px rgba(0, 0, 0, 0.35);
-  border-radius: 7px;
-  color: #809419;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  padding: 7px 25px;
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  transition: 0.5s;
-}
-
-.order-btn button:hover {
-  background: #809419;
-  color: #DEF17A;
-}
-
-.order-btn button:hover {
-  background: #809419;
-  color: #DEF17A;
-}
-
-/***********************************
-
-    End Cart
-
-***********************************/
-/***********************************
-
     Product
 
 ***********************************/
@@ -744,7 +612,7 @@ p.product_product-manufacturer span.brand-name {
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 19px;
 }
 

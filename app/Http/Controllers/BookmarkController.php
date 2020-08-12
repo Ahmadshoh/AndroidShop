@@ -36,7 +36,7 @@ class BookmarkController extends Controller
     }
 
     public function delete(Request $request, $id) {
-        $request->session()->forget($id);
+        $request->session()->forget('bookmark');
         return redirect()->route('bookmark');
     }
 
@@ -44,4 +44,5 @@ class BookmarkController extends Controller
         $request->session()->forget('bookmark');
         return redirect()->route('index');
     }
+
 }

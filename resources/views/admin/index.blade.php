@@ -2,7 +2,6 @@
 
 @section('content')
     @section('card-title')Статистика @endsection
-n
     <!-- Content Row -->
     <div class="row">
 
@@ -12,7 +11,7 @@ n
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="h1 mb-3 font-weight-bold text-gray-900">23</div>
+                            <div class="h1 mb-3 font-weight-bold text-gray-900">{{ $ordersCount }}</div>
                             <div class="text-lg font-weight-bold text-primary text-uppercase mb-1">Заказов</div>
                         </div>
                         <div class="col-auto">

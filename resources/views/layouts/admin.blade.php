@@ -51,7 +51,7 @@
         <hr class="sidebar-divider my-0">
 
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ route('admin.order.index') }}">
                 <i class="fa fa-fw fa-money-bill-alt"></i>
                 <span>Заказы</span></a>
         </li>
@@ -146,20 +146,22 @@
                 </ul>
 
             </nav>
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row" style="margin-top: 25px;">
                     <div class="col-md-12">
-                        <?php if(isset($_SESSION['error'])): ?>
-                        <div class="alert alert-danger">
-                            <?php echo $_SESSION['error']; unset($_SESSION['error']); ?>
-                        </div>
-                        <?php endif; ?>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                @foreach($errors->all() as $error)
+                                    {{ $error }}
+                                @endforeach
+                            </div>
+                        @endif
 
-                        <?php if(isset($_SESSION['success'])): ?>
-                        <div class="alert alert-success">
-                            <?php echo $_SESSION['success']; unset($_SESSION['success']); ?>
-                        </div>
-                        <?php endif; ?>
+                        @if (session()->has('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -30,7 +30,7 @@ class CategoryController extends Controller
     {
         Category::create($request->all());
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category.index')->with('success', "Категория успешно добавлен в базу!");
     }
 
 
@@ -54,7 +54,7 @@ class CategoryController extends Controller
     {
         $category->update($request->all());
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category.index')->with('success', "Категория успешно изменён!");
     }
 
 
@@ -62,6 +62,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->route('admin.category.index');
+        return redirect()->route('admin.category.index')->with('success', "Категория успешно удалён!");
     }
 }

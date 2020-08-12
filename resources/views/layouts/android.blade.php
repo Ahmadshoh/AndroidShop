@@ -5,15 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <!-- <link rel="stylesheet" href="css/media.css"> -->
-    <title>@yield('title')</title>
+
+    <title>{{ config('app.name', 'Androidshop') }}</title>
 </head>
 
 <body>
@@ -65,8 +69,8 @@
                     <button class="menu-btn cabinet">Кабинет<i class="fas fa-user"></i></button>
                     <div class="cabins-items">
                         @auth
-                            <div><a href="user/profile">Личный кабинет</a></div>
-                            <div><a href="user/orders">Ваши заказы</a></div>
+                            <div><a href="{{ route('user.profile', Auth::id()) }}">Личный кабинет</a></div>
+                            <div><a href="{{ route('user.orders') }}">Ваши заказы</a></div>
                             <div><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Выйти</a></div>
                             <form action="{{ route('logout') }}" id="logout-form" style="display: none" method="post">@csrf</form>
 
@@ -90,7 +94,6 @@
 
 <section class="content">
     <div class="container">
-
         @if ($errors->any())
         <div class="col-12">
             <div class="alert alert-danger">
@@ -104,9 +107,6 @@
             <div class="col-12">
                 <div class="alert alert-success">
                     {{ session()->get('success') }}
-{{--                    @foreach(session('success')->get('success') as $message)--}}
-{{--                        {{ $message }}--}}
-{{--                    @endforeach--}}
                 </div>
             </div>
         @endif

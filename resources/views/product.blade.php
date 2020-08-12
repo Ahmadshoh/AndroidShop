@@ -21,7 +21,7 @@
         <div class="col-lg-8 col-md-8 col-sm-12 info-block">
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12">
-                    <h3 class="product_product-title">{{ $product->title }}</h3><br>
+                    <h4 class="product_product-title">{{ $product->title }}</h4><br>
                     <p class="product_product-price">Цена: <span class="price">{{ $product->price }}</span> <span class="tjs">TJS</span></p>
                     <p class="product_product-manufacturer">
                         Производитель:
@@ -31,32 +31,43 @@
                     </p>
 
                     <div class="text-left mb-3">
-                        <select name="color" id="color" class="form-control">
-                            <option value="Red">Red</option>
-                            <option value="Red">Red</option>
-                            <option value="Red">Red</option>
-                        </select>
+
                     </div>
 
-                    <div class="text-left mb-3">
-                        <form action="cart/addToCart">
-                            <input type="number" id="qty" name="qty" class="mr-3" style="width: 50px;" value="1" min="1">
-                            <a href="cart/addToCart?id=" data-id="" class="addToCart">
-                                <button class="main-btn">Купить</button>
-                            </a>
+                    <div class="text-left mb-3 mt-5">
+                        <form action="{{ route('addToCart', $product->id) }}">
+                            <div class="row">
+                                <div class="form-group col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                                    <label for="qty">Количество</label>
+                                    <input type="number" id="qty" name="qty" class="form-control mr-3" value="1" min="1">
+                                </div>
+                                <div class="form-group col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                                    <label for="color">Цвет</label>
+                                    <select name="color" id="color" class="form-control">
+                                        <option value="Red">Red</option>
+                                        <option value="Red">Red</option>
+                                        <option value="Red">Red</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <input type="submit" class="btn btn-success" value="Купить">
                         </form>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12">
-                    <h5 class="info-title">Полезные информации</h5><br>
-                    <a href="#" class="product-terms"><i class="fa fa-align-justify"></i>Условия
-                        рассрочки</a><br>
-                    <a href="#" class="product-terms"><i class="fa fa-mobile"></i>Условия доставки</a>
+                    <h4 class="info-title">Полезные информации</h4><br>
+                    <a href="#" class="product-terms mb-5">
+                        <i class="fa fa-align-justify" style="font-size: 18px;">Условия рассрочки</i>
+                    </a>
+                    <a href="#" class="product-terms mt-5">
+                        <i class="fa fa-mobile" style="font-size: 18px;">Условия доставки</i>
+                    </a>
                 </div>
             </div>
 
-            <div class="bottom-block">
-                <a href="bookmark/addToBookmark?id=" class="addToBookmark" data-id="">
+            <div class="bottom-block mt-5">
+                <a href="{{ route('addToBookmark', $product->id) }}" class="addToBookmark mr-5">
                     <i class="fa fa-heart"></i>
                     <span>Добавить в закладку</span>
                 </a>
